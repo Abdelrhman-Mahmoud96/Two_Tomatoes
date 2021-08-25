@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: TomatoColors.tomatoDarkRed));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Two Tomatoes',
       theme: TomatoTheme.mainTheme,
       home: LaunchScreen(),
     );
