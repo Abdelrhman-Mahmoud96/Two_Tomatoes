@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future retryConnection() async {
-      checkConnection().then((value) => isConnected = value);
+      isConnected = await checkConnection();
 
       if (isConnected) {
         setState(() {

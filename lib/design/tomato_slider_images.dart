@@ -6,12 +6,12 @@ List<Widget> tomatoSliderImages (){
   String _urlString = 'https://spoonacular.com/';
   List<String> images = [];
   images.add('assets/cover.jpg');
-  images.add('assets/coverfood.jpg');
-  images.add('assets/coverapi.jpg');
+  images.add('assets/cover3food.jpg');
+  images.add('assets/cover2api.jpg');
 
   final List<Widget> imageSliders = images.map((item) => InkWell(
     onTap: () {
-      if(item.contains('coverapi.jpg'))
+      if(item.contains('cover2api.jpg'))
         {
           LaunchURL.launchUrl(_urlString);
         }
