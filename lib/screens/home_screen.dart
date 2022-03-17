@@ -214,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
               // recipes grid view
               StreamBuilder(
                 stream: _streamController.stream,
-                builder: (context, snapshot) {
+                builder: (context, AsyncSnapshot snapshot) {
                     if (snapshot.hasData) {
                       return GridView.builder(
                         shrinkWrap: true,
@@ -241,7 +241,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   FadeInImage(
                                     placeholder: AssetImage('assets/image_placeholder.jpg'),
                                     image: (snapshot.data[index].image) == null ?
-                                    AssetImage('assets/image_placeholder.jpg') :
+                                    AssetImage('assets/image_placeholder.jpg'):
                                     NetworkImage(snapshot.data[index].image),
                                     fit: BoxFit.fill,
                                   ),
@@ -306,8 +306,8 @@ class _HomeScreenState extends State<HomeScreen> {
           if (result == true) {
             setState(() {
               _loadRecipes(_numOfRecipes).then((value) {
-                recipeList.insertAll(recipeList.length, value);
-                print(recipeList.length);
+                recipeList?.insertAll(recipeList.length, value);
+                print(recipeList?.length);
                 _streamController.sink.add(recipeList);
               });
             });

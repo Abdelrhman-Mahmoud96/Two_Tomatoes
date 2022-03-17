@@ -111,7 +111,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
         SliverToBoxAdapter(
           child: StreamBuilder(
             stream: _recipesStreamController.stream,
-            builder: (context, snapshot) {
+            builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 return GridView.builder(
                   shrinkWrap: true,
@@ -138,7 +138,7 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
                           FadeInImage(
                             placeholder: AssetImage('assets/image_placeholder.jpg'),
                             image: (snapshot.data[index].image) == null ?
-                            AssetImage('assets/image_placeholder.jpg') :
+                            AssetImage('assets/image_placeholder.jpg') as ImageProvider:
                             NetworkImage(snapshot.data[index].image),
                             fit: BoxFit.fill,
                           ),
@@ -253,7 +253,6 @@ class _SearchResultsScreenState extends State<SearchResultsScreen> {
   }
 
   Future<SearchModel> _loadResults(int numberOfRecipes, int offset, String query, List<String> cuisines, List<String> diets, List<String> dishTypes ) async{
-    List<RecipeModel> recipes = [];
     SearchModel searchModel = SearchModel(0,List.empty());
 
 

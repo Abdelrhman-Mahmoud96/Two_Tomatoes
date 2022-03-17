@@ -47,7 +47,7 @@ class RecipeScreen extends StatelessWidget {
                         child: FadeInImage(
                           placeholder: AssetImage('assets/image_placeholder.jpg'),
                           image: (_recipeModel.image) == null ?
-                          AssetImage('assets/image_placeholder.jpg') :
+                          AssetImage('assets/image_placeholder.jpg') as ImageProvider:
                           NetworkImage(_recipeModel.image),
                           fit: BoxFit.fitWidth,
                         ),
@@ -275,7 +275,7 @@ class RecipeScreen extends StatelessWidget {
 
   String _parseHtmlString(String htmlString) {
     final document = parse(htmlString);
-    final String parsedString = parse(document.body.text).documentElement.text;
+    final String parsedString = parse(document.body?.text).documentElement.text;
 
     return parsedString;
   }
@@ -299,12 +299,12 @@ class RecipeScreen extends StatelessWidget {
     } else{
       _readyInMin = 'No Information Found';
     }
-    if (recipeModel.cuisines.length != 0) {
+    if (recipeModel.cuisines?.length != 0) {
       _cuisine = recipeModel.cuisines.join(", ");
     } else{
       _cuisine = 'No Information Found';
     }
-    if (recipeModel.diets.length != 0) {
+    if (recipeModel.diets?.length != 0) {
       _diets = _recipeModel.diets.join(", ");
     } else{
       _diets = 'No Information Found';

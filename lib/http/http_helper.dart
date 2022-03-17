@@ -101,13 +101,12 @@ class HttpHelper{
     }
     else{
       print('something went wrong !');
-      return null;
+      return SearchModel(0, List.empty());
     }
 
   }
 
   Future<SearchModel> searchRecipesWithFilter(int numOfRecipes, int offset, List<String> cuisines, List<String> diets, List<String> dishTypes) async{
-   // TODO: 19/05/2021 something wrong here it says invalid argument(s) ?!
     String cuisinesString = cuisines.join(',');
     String dietsString = diets.join(',');
     String dishTypeString = dishTypes.join(',');
@@ -136,7 +135,7 @@ class HttpHelper{
    }
    else{
      print('something went wrong !');
-     return null;
+     return SearchModel(0, List.empty());
    }
 
  }

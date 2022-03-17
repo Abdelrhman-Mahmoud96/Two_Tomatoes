@@ -42,7 +42,7 @@ class IngredientsScreen extends StatelessWidget {
                         height: 100,
                         placeholder: AssetImage('assets/image_placeholder.jpg'),
                         image: (ingredients[index].image) == null ?
-                        AssetImage('assets/image_placeholder.jpg') :
+                        AssetImage('assets/image_placeholder.jpg'):
                         NetworkImage(_httpHelper.getIngImageUrl(ingredients[index].image, 'small')),
                         fit: BoxFit.fitHeight,
                       ),
